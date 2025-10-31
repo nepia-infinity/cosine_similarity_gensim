@@ -66,7 +66,7 @@ def train_doc2vec_model(tagged_data: List[TaggedDocument]) -> Doc2Vec:
     model = Doc2Vec(
         vector_size=75,       
         window=5,             
-        min_count=2,          
+        min_count=1, # 1回でも登場した単語を学習モデルに加える       
         workers=4,            
         epochs=40             
     )
