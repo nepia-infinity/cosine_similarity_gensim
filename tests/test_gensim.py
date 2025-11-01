@@ -154,6 +154,7 @@ if __name__ == "__main__":
         exit()
         
     query_text = "プログラミングはとても面白いです。Pythonが好き。"
+    print(f"🔑入力されたテキスト: '{query_text}'")
     data_file = r'C:\Users\nepia\Desktop\gensim\csv\test_data.csv'
     
     data_df = load_data(data_file) 
