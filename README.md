@@ -18,7 +18,13 @@ OpenAIの`text-embedding-3-small`モデルを利用して、高精度なセマ�
 > 
 > コサイン類似度 * 0.8 ＋ キーワード一致率 * 0.2 の値が大きい順に並べ、類似率が0.5以上の事例を最大5件、Slackに投稿する。
 
----
+## コサイン類似度の算出データサンプル
+- [Google Spreadsheet](https://docs.google.com/spreadsheets/d/1IX1JiDUo5kcxJnyTMqvKC2z-iuw3zdQD9lc-m53yQhE/edit?usp=sharing)
+- [関連note](https://note.com/nepia_infinity/n/n6fcd20f88274)
+
+
+## RAG関連で参考になりそうなブログなど
+- [社内AIヘルプデスク 正答率80%達成 RAG精度改善の軌跡](https://engineering.dena.com/blog/2025/10/findoutai_rag/)
 
 # 🧠 使用技術の解説
 
