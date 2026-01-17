@@ -22,7 +22,7 @@ except FileNotFoundError:
     exit()
 
 # --- ここに問い合わせ内容を入力してください ---
-input_text = "パソコンが起動しない"
+input_text = "ノートPCが起動しない"
 # -----------------------------------------
 
 print(f"入力されたテキスト: '{input_text}'")

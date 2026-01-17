@@ -6,13 +6,15 @@ import os
 load_dotenv()
 client = OpenAI(api_key=os.environ["OPENAI_API_KEY"])
 
+# ベクトル化するためのテキストデータを定義
 texts = [
-    "今日はお絵描き教室egaco@千葉の無料体験に出掛けてきました。",
-    "今日はお絵描き教室egaco@新宿の無料体験に出掛けてきました。",
-    "お絵描きアプリのClip Studio Paintのブラシって最高だよね",
-    "東宝シネマズの映画館の没入体験マジでヤバい。",
-    "PCが立ち上がらない。",
-    "Macの電源が付かない。",
+    "Mコパの申請方法を教えてください。", #0
+    "Microsoft Copilotの申請方法を教えてください。", #1
+    "Mコパ（Microsoft Copilot）の申請方法を教えてください。", #2
+    "Gemini使いたいです。", #3
+    "東宝シネマズ新宿の映画館の没入体験マジでヤバい。",  #4
+    "PCが立ち上がらない。", #5
+    "Macの電源が付かない。", #6
 ]
 
 # それぞれのテキストをベクトル化
@@ -23,12 +25,13 @@ response = client.embeddings.create(
 
 embeds = [d.embedding for d in response.data]
 
-# コサイン類似度を計算
+# コサイン類似度を計算することで、テキストが完全一致していなくても似ているかを推測できる
 def cosine_similarity(a, b):
     a, b = np.array(a), np.array(b)
     return np.dot(a, b) / (np.linalg.norm(a) * np.linalg.norm(b))
 
-print("お絵描き教室egaco@千葉 vs お絵描き教室egaco@新宿:", cosine_similarity(embeds[0], embeds[1]))
-print("お絵描き教室egaco@千葉 vs Clip Studio Paint:", cosine_similarity(embeds[0], embeds[2]))
-print("お絵描き教室egaco vs 東宝シネマズ:", cosine_similarity(embeds[0], embeds[3]))
-print("PCが立ち上がらない。 vs Macの電源が付かない。:", cosine_similarity(embeds[4], embeds[5]))
+print("Mコパの申請方法 vs Microsoft Copilotの申請方法：", cosine_similarity(embeds[0], embeds[1]))
+print("Mコパの申請方法 vs Mコパ（Microsoft Copilot）の申請方法：", cosine_similarity(embeds[0], embeds[2]))
+print("Mコパの申請方法 vs Geminiを使いたい：", cosine_similarity(embeds[0], embeds[3]))
+print("Mコパの申請方法 vs 東宝シネマズ新宿の映画館の没入体験：", cosine_similarity(embeds[0], embeds[4]))
+print("PCが立ち上がらない vs Macの電源が付かない　:", cosine_similarity(embeds[5], embeds[6]))
