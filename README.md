@@ -5,6 +5,8 @@
 OpenAIの`text-embedding-3-small`モデルを利用して、高精度なセマンティック検索を実現します。
 
 こちらの[Tweet](https://x.com/rk611/status/1983791317827383301)、モノタロウさんのPMが1日で社内問い合わせを自動化したという件に触発されテストコードを作成しました。
+<img width="1046" height="1230" alt="image" src="https://github.com/user-attachments/assets/1b845d91-aa84-41d7-a574-39a7d06af788" />
+
 
 ## GASでやっている処理
 >新たな問い合わせの文章をOpenAI APIに送信する。
